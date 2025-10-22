@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "code": "S42_ICELAND_V1",
+  "variables": ["PROJECT_NAME", "PROJECT_KEY"],
+  "dropdowns": {
+    "FEL Stage": ["Planning", "Design", "Deployment"],
+    "Task Category": ["Report", "Negotiations", "Study", "Work Package"]
+  },
+  "roles": ["CIO", "CFO", "CTO", "CSO", "CPO", "COS", "CEO"],
+  "tasks": [
+    {
+      "title": "Feasibility Report — {{PROJECT_NAME}}",
+      "status": "todo",
+      "fields": {
+        "FID Roadmap": "Initial",
+        "Fel Order": 1,
+        "FEL Stage": "Planning",
+        "Task Category": "Report",
+        "Budget (USD)": 8000
+      },
+      "checklist": [
+        { "name": "Energy availability check", "checked": 0 },
+        { "name": "Legal clearance", "checked": 0 }
+      ],
+      "notes": "Ensure compliance with local environmental laws."
+    },
+    {
+      "title": "Stakeholder Negotiations",
+      "status": "todo",
+      "fields": {
+        "FID Roadmap": "Phase 2",
+        "Fel Order": 2,
+        "FEL Stage": "Design",
+        "Task Category": "Negotiations",
+        "Budget (USD)": 12000
+      },
+      "checklist": [
+        { "name": "Local council meeting", "checked": 0 },
+        { "name": "Power utility agreement", "checked": 0 }
+      ],
+      "notes": "Engage partners for joint ownership models."
+    },
+    {
+      "title": "Deployment & Commissioning",
+      "status": "todo",
+      "fields": {
+        "FID Roadmap": "Phase 3",
+        "Fel Order": 3,
+        "FEL Stage": "Deployment",
+        "Task Category": "Work Package",
+        "Budget (USD)": 40000
+      },
+      "checklist": [
+        { "name": "Installation verification", "checked": 0 },
+        { "name": "Performance baseline test", "checked": 0 }
+      ],
+      "notes": "Ensure geothermal integration and system load balance."
+    }
+  ]
+}

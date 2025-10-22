@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  @apply box-border;
+}
+
+html,
+body {
+  @apply h-full bg-zinc-950 text-zinc-100;
+}
+
+body {
+  @apply m-0 font-sans antialiased;
+}
+
+a {
+  @apply text-inherit no-underline;
+}
+
+/* React Quill Dark Theme Styles */
+.ql-toolbar {
+  background-color: rgb(39 39 42) !important;
+  border-color: rgb(63 63 70) !important;
+  border-bottom: 1px solid rgb(63 63 70) !important;
+}
+
+.ql-toolbar .ql-stroke {
+  stroke: rgb(161 161 170) !important;
+}
+
+.ql-toolbar .ql-fill {
+  fill: rgb(161 161 170) !important;
+}
+
+.ql-toolbar button:hover {
+  background-color: rgb(63 63 70) !important;
+}
+
+.ql-toolbar button.ql-active {
+  background-color: rgb(59 130 246) !important;
+}
+
+.ql-container {
+  background-color: rgb(39 39 42) !important;
+  border-color: rgb(63 63 70) !important;
+  color: rgb(244 244 245) !important;
+}
+
+.ql-editor {
+  color: rgb(244 244 245) !important;
+}
+
+.ql-editor.ql-blank::before {
+  color: rgb(113 113 122) !important;
+}
+
+.ql-editor p {
+  color: rgb(244 244 245) !important;
+}
+
+/* Status dropdown styling - make options match the select background */
+select option {
+  background-color: inherit !important;
+  color: rgb(244 244 245) !important;
+  padding: 0.5rem !important;
+}
+
+/* Default select styling */
+select {
+  color-scheme: dark;
+}
+
+/* Green dropdown (done) */
+.bg-green-900\/30 option {
+  background-color: rgb(20 83 45 / 0.3) !important;
+}
+
+/* Blue dropdown (in_progress) */
+.bg-blue-900\/30 option {
+  background-color: rgb(30 58 138 / 0.3) !important;
+}
+
+/* Orange dropdown (blocked) */
+.bg-orange-900\/30 option {
+  background-color: rgb(124 45 18 / 0.3) !important;
+}
+
+/* Red dropdown (todo) */
+.bg-red-900\/30 option {
+  background-color: rgb(127 29 29 / 0.3) !important;
+}

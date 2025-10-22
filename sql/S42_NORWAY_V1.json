@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "code": "S42_NORWAY_V1",
+  "variables": ["PROJECT_NAME", "PROJECT_KEY"],
+  "dropdowns": {
+    "FEL Stage": ["Concept", "Design", "Execution"],
+    "Task Category": ["Investigation", "Design", "Work Package", "Presentation"]
+  },
+  "roles": ["CIO", "CFO", "CTO", "CSO", "CPO", "COS", "CEO"],
+  "tasks": [
+    {
+      "title": "Site Survey — {{PROJECT_NAME}}",
+      "status": "todo",
+      "fields": {
+        "FID Roadmap": "Phase 1",
+        "Fel Order": 1,
+        "FEL Stage": "Concept",
+        "Task Category": "Investigation",
+        "Budget (USD)": 10000
+      },
+      "checklist": [
+        { "name": "Power grid validation", "checked": 0 },
+        { "name": "Permits requested", "checked": 0 }
+      ],
+      "notes": "Collect geological and environmental data before proceeding."
+    },
+    {
+      "title": "Engineering Blueprint",
+      "status": "todo",
+      "fields": {
+        "FID Roadmap": "Phase 2",
+        "Fel Order": 2,
+        "FEL Stage": "Design",
+        "Task Category": "Design",
+        "Budget (USD)": 25000
+      },
+      "checklist": [
+        { "name": "Blueprint uploaded", "checked": 0 },
+        { "name": "CTO approval", "checked": 0 }
+      ],
+      "notes": "Blueprint design for local climate conditions."
+    },
+    {
+      "title": "Construction Execution",
+      "status": "todo",
+      "fields": {
+        "FID Roadmap": "Phase 3",
+        "Fel Order": 3,
+        "FEL Stage": "Execution",
+        "Task Category": "Work Package",
+        "Budget (USD)": 50000
+      },
+      "checklist": [
+        { "name": "Ground breaking", "checked": 0 },
+        { "name": "Safety audit", "checked": 0 }
+      ],
+      "notes": "Coordinate local contractors and suppliers."
+    }
+  ]
+}

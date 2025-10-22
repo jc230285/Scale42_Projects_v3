@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "code": "S42_SITE_DEV_V1",
+  "variables": [
+    "PROJECT_NAME",
+    "PROJECT_KEY"
+  ],
+  "dropdowns": {
+    "FEL Stage": [
+      "FEL-1",
+      "FEL-2",
+      "FEL-3"
+    ],
+    "Task Category": [
+      "Investigation",
+      "Negotiations",
+      "Report",
+      "Decision Gate",
+      "Work Package",
+      "Study",
+      "Travel",
+      "Design",
+      "Presentation",
+      "Application"
+    ]
+  },
+  "roles": [
+    "CIO",
+    "CFO",
+    "CTO",
+    "CSL",
+    "CCO",
+    "CSO",
+    "CPO",
+    "COS",
+    "CEO"
+  ],
+  "tasks": [
+    {
+      "title": "Kickoff \u2014 {{PROJECT_NAME}}",
+      "status": "todo",
+      "fields": {
+        "FID Roadmap": "",
+        "Fel Order": 1,
+        "FEL Stage": "FEL-1",
+        "Topic": "",
+        "Open or Closed": 0,
+        "Task Status": "0-Not Started",
+        "Budget (USD)": null,
+        "Start Date": null,
+        "End Date": null,
+        "Lead": "CTO",
+        "Assignee": []
+      },
+      "checklist": [
+        {
+          "name": "SEO verification",
+          "checked": 0
+        },
+        {
+          "name": "SSL certificate installed",
+          "checked": 0
+        }
+      ],
+      "notes": "Initial planning and roles assignment."
+    }
+  ]
+}
