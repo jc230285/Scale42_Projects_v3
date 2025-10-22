@@ -93,3 +93,7 @@ coverage/
 
 # Local development
 .vercel
+
+# Files with sensitive information
+DEPLOYMENT_SUMMARY.md
+SEPARATED_DEPLOYMENT.md
