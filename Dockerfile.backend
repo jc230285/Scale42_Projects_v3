@@ -1,0 +1,53 @@
+# Backend API Dockerfile - API routes only
+FROM node:20-alpine AS base
+
+# Install dependencies only when needed
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+# Install dependencies
+COPY package.json package-lock.json* ./
+RUN npm ci
+
+# Rebuild the source code only when needed
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+ENV NEXT_TELEMETRY_DISABLED=1
+# Build for API-only mode
+RUN npm run build
+
+# Production image for API server
+FROM base AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=4000
+ENV HOSTNAME=0.0.0.0
+
+# Install curl for healthcheck
+RUN apk add --no-cache curl
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# Copy only API-related files
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/app/api ./app/api
+
+# Copy lib folder for database connections
+COPY --from=builder /app/lib ./lib
+
+# Fix permissions
+RUN chown -R nextjs:nodejs /app
+
+USER nextjs
+
+EXPOSE 4000
+
+# Start the API server on port 4000
+CMD ["node", "server.js"]
