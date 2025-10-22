@@ -1,8 +1,8 @@
 version: '3.9'
 
 services:
-  # Frontend Service (React/Next.js pages)
-  scale42-frontend:
+  # Main application service (both frontend and backend)
+  scale42-app:
     build:
       context: .
       dockerfile: Dockerfile.frontend
@@ -13,61 +13,33 @@ services:
       - NEXT_TELEMETRY_DISABLED=1
       - PORT=3000
       - HOSTNAME=0.0.0.0
-      # Frontend environment variables
-      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
-      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
-      - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
-      - NEXTAUTH_URL=${NEXTAUTH_URL}
-      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
-      # Point to backend API service
-      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:3000 || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
-    restart: unless-stopped
-    depends_on:
-      - scale42-backend
-    networks:
-      - scale42-network
-
-  # Backend API Service (API routes only)
-  scale42-backend:
-    build:
-      context: .
-      dockerfile: Dockerfile.backend
-    ports:
-      - "4000:4000"
-    environment:
-      - NODE_ENV=production
-      - NEXT_TELEMETRY_DISABLED=1
-      - PORT=4000
-      - HOSTNAME=0.0.0.0
-      # Backend environment variables
+      # Supabase configuration
       - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
       - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
       - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
+      # Google OAuth
       - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
       - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
+      # Database connection
       - SUPABASE_DB_HOST=${SUPABASE_DB_HOST}
       - SUPABASE_DB_PORT=${SUPABASE_DB_PORT:-5432}
       - SUPABASE_DB_DATABASE=${SUPABASE_DB_DATABASE:-postgres}
       - SUPABASE_DB_USER=${SUPABASE_DB_USER}
       - SUPABASE_DB_PASSWORD=${SUPABASE_DB_PASSWORD}
+      # NextAuth configuration
       - NEXTAUTH_URL=${NEXTAUTH_URL}
       - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+      # API URL (points to same service for now)
+      - NEXT_PUBLIC_API_URL=${NEXTAUTH_URL}
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:4000/api/health || exit 1"]
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/api/health || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 40s
     restart: unless-stopped
-    networks:
-      - scale42-network
 
 networks:
-  scale42-network:
+  default:
     driver: bridge
