@@ -1,9 +1,9 @@
 import { redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
 import SideNav from '@/components/SideNav';
-import { getNavigationSections } from '@/lib/navigation';
-import { authOptions } from '@/lib/auth';
-import { supabaseServiceRole } from '@/lib/supabaseService';
+import { getNavigationSections } from '../lib/navigation';
+import { authOptions } from '../lib/auth';
+import { supabaseServiceRole } from '../lib/supabaseService';
 
 export default async function HomePage() {
   const session = await getServerSession(authOptions);

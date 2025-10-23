@@ -1,7 +1,7 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import { supabaseServiceRole } from '@/lib/supabaseService';
+import { supabaseServiceRole } from '../../../lib/supabaseService';
 
 export async function createPage(formData: FormData) {
   const supabase = supabaseServiceRole();

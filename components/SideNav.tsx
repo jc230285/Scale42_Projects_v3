@@ -15,7 +15,7 @@ import {
   LogIn,
 } from 'lucide-react';
 import Link from 'next/link';
-import type { NavSection } from '@/lib/navigation';
+import type { NavSection } from '../lib/navigation';
 
 type Mode = 'mobile' | 'min' | 'full';
 

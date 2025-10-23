@@ -1,4 +1,4 @@
-import { supabaseServiceRole } from '@/lib/supabaseService';
+import { supabaseServiceRole } from '../../../lib/supabaseService';
 import type { Database } from '@/types/supabase';
 import UserCard from './UserCard';
 

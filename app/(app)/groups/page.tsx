@@ -1,6 +1,6 @@
 import { getServerSession } from 'next-auth';
-import { supabaseServiceRole } from '@/lib/supabaseService';
-import { authOptions } from '@/lib/auth';
+import { supabaseServiceRole } from '../../../lib/supabaseService';
+import { authOptions } from '../../../lib/auth';
 import GroupManagement from './GroupManagement';
 
 export default async function GroupsPage() {

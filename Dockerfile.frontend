@@ -31,13 +31,7 @@ ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY
 ENV NEXTAUTH_URL=$NEXTAUTH_URL
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 
-# Debug: Print environment variables
-RUN echo "NEXT_PUBLIC_SUPABASE_URL: $NEXT_PUBLIC_SUPABASE_URL" && \
-    echo "NEXT_PUBLIC_SUPABASE_ANON_KEY: $NEXT_PUBLIC_SUPABASE_ANON_KEY" && \
-    echo "NEXTAUTH_URL: $NEXTAUTH_URL" && \
-    echo "NEXT_PUBLIC_API_URL: $NEXT_PUBLIC_API_URL"
-
-RUN npm run build --verbose
+RUN npm run build
 
 # Production image for standalone Next.js application
 FROM base AS runner

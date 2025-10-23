@@ -2,8 +2,8 @@ import { ReactNode } from 'react';
 import { redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
 import SideNav from '@/components/SideNav';
-import { getNavigationSections } from '@/lib/navigation';
-import { authOptions } from '@/lib/auth';
+import { getNavigationSections } from '../../lib/navigation';
+import { authOptions } from '../../lib/auth';
 
 export const revalidate = 0;
 

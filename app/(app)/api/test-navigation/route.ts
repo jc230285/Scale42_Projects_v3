@@ -1,4 +1,4 @@
-import { getNavigationSections } from '@/lib/navigation';
+import { getNavigationSections } from '../../../../lib/navigation';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
